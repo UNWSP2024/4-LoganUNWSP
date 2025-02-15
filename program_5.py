@@ -1,20 +1,35 @@
-# Program #5: Bank Balance
-# Write a program that asks the user to enter the amount that he or she has budgeted for a month.
-# A loop should then prompt the user to enter each of his or her expenses for the 
-# month and keep a running total. (Enter 0 to exit the loop)  
-# When the loop finishes, the program should display the amount that the 
-# user is over or under budget.
+#Logan H's Budget Analysis
 
-def main():
-    budget = 0.0
-    difference = 0.0
-    spent = 1.0         #initialize for while loop
-    total = 0.0
+# 1st, I get a number of money someone has in a float
+funds = float(input("Enter how much you have: "))
 
-    ######################
-    # WRITE YOUR CODE HERE
-    ######################
+# 2nd, then I keep track of their budget, starting at 0
+budget = 0
 
+# 3rd, I start of loop, asking what needs to be budgeted and how much it is.
+loop_budget = True
 
-if __name__ == '__main__':
-    main()
+while loop_budget == True:
+    question = input("What needs to be budgeted? ")
+    number = float(input("How much will that cost you? "))
+    budget += number
+
+# 4th, the loop ends if the state is changed to false which is changed when there is nothing else
+    answer = input("Do you have anything else that need's to be budgeted? (Y/N) ")
+    if answer == "Y":
+        loop_budget = True
+
+    else:
+        loop_budget = False
+
+# 5th, I find the total left, display all the info and tell them if they are positive or negative.
+total_left = funds - budget
+
+print("Alright, your total funds are $", funds, ",")
+print("you need to $", budget, " to survive ,")
+print("and you are left with $", total_left, ".")
+
+if total_left >= 0:
+    print("Congrats, you will survive.")
+else:
+    print("You are going negative, better take out a loan.")
